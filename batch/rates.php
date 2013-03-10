@@ -21,7 +21,7 @@ use \Lib\Config,
  */
 require_once '../lib/Config.php';
 
-// Lets now create the batch
+// Lets now run the batch
 $ratesBatch = new Batch();
 $ratesBatch->run();
 
