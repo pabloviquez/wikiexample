@@ -13,12 +13,15 @@
  */
 
 // Namespaces declarations
-use \Lib\Batch;
+use \Lib\Config,
+    \Lib\Rates\Batch;
 
 /**
- * Batch handler, will take care of autoloading and all configs
+ * Config handler, will take care of autoloading and all configs
  */
-require_once '../lib/Batch.php';
+require_once '../lib/Config.php';
 
-$b = new Batch();
+// Lets now create the batch
+$ratesBatch = new Batch();
+$ratesBatch->run();
 

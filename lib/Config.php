@@ -11,6 +11,9 @@ namespace Lib;
 
 /**
  * Class that takes care of all configuration settings
+ *
+ * An instance of this class will be created automatically upon requiring the
+ * file for the first time. The class is set as a singleton so there's no overhead
  */
 class Config
 {
@@ -26,7 +29,7 @@ class Config
      *
      * @var array
      */
-    private $_configs;
+    private $_config;
 
     /**
      * Class construct, private to avoid direct instantiation
@@ -35,7 +38,10 @@ class Config
     {
         // Lets now calculate where the config file is
         $configFile = realpath(dirname(__FILE__) . '/../config/config.ini');
-        $this->_configs = parse_ini_file($configFile);
+        $this->_config = parse_ini_file($configFile);
+
+        // Register the autoloader
+        spl_autoload_register(array($this, 'autoloader'));
     }
 
     /**
@@ -53,12 +59,33 @@ class Config
     }
 
     /**
+     * Callback function for the autoloader
+     *
+     * @param string $class
+     * @return void
+     */
+    public function autoloader($class)
+    {
+        // If the namespace is present, lets remove it
+        $className = str_replace(__NAMESPACE__ . '\\', '', $class);
+        $className = str_replace('\\', '/', $className);
+        $fileToLoad = dirname(__FILE__) . DIRECTORY_SEPARATOR . $className . '.php';
+
+        // Load the file
+        require_once $fileToLoad;
+    }
+
+    /**
      * Returns the configuration for the app
      *
      * @return array
      */
-    public function getConfigs()
+    public function getConfig()
     {
-        return $this->_configs;
+        return $this->_config;
     }
 }
+
+// Lets load the class to register the autoloader, since its singleton there are
+// no extra overheads
+Config::getInstance();

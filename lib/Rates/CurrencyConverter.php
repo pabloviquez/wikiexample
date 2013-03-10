@@ -24,13 +24,26 @@ uses \Lib\Rates\Dao;
 class CurrencyConverter
 {
     /**
-     * Retrieves
-     * Enter description here ...
+     * Parses the currency and amount given and returns an array with the respective
+     * dollar conversion
      *
+     * @param array $values
+     * @return array
      */
-    public function getDollars($currency, $amount)
+    public function getDollars(array $values)
     {
 
+    }
+
+    /**
+     * Retrieves all the currency codes stored in the DB
+     *
+     * @return array
+     */
+    public function getCurrencies()
+    {
+        $dao = new Dao();
+        return $dao->getCodes();
     }
 
     /**
@@ -38,9 +51,9 @@ class CurrencyConverter
      *
      * @return void
      */
-    private function _getRates($currency)
+    private function _getRates(array $currencies = array())
     {
         $dao = new Dao();
-        return $dao->get($currency);
+        return $dao->get($currencies);
     }
 }
