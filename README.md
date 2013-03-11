@@ -28,6 +28,11 @@ The app has the following structure:
 /-
  /batch     -> Batch script. This is where batch scripts are
  /config    -> App configuration. This should be the only place to edit configs
+               This directory should not be public, however if by any chance its
+               public, an .htaccess file is also included which prevents serving
+               the file. If the configuration does not allow .htaccess file, then
+               it's important to manually change the web server config to deny any
+               request to ".ini" files inside this directory or the app for that matters.
  /docs      -> Any relevant documentation
  /lib       -> PHP library for the app
  /sql       -> SQL Scripts for the DB creation
@@ -57,6 +62,14 @@ This should be the only place to edit configurations.
 --------------------------------------------------------------------------------
 
         php batch/rates.php
+
+
+If by any chance, there's no access to the console, anoter script was created in
+the front end which does the exact same thing, however in the public site.
+
+To call it make a request to:
+
+        http://[localhost || whateverdomain || path ]/process/process.php
 
 
 1.3. Design Aspects:
@@ -96,3 +109,20 @@ There are some issues that could be improved:
 
 2. JS App Notes
 --------------------------------------------------------------------------------
+
+2.1. Design Aspects:
+--------------------------------------------------------------------------------
+The page uses a responsive design, implementing Twitter Bootstrap for faster and
+more efficient coding.
+
+
+
+2.1. What could be improved?
+--------------------------------------------------------------------------------
+1. Progressive Enhancement with JavaScript. While smartphones are known to support
+   JavaScript, since this is a donations page, it should support browser with
+   no JavaScript. Right now, if the user does not have JavaScript enabled,
+   it wont be able to switch currencies.
+
+
+

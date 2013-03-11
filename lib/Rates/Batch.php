@@ -59,9 +59,9 @@ class Batch
     }
 
     /**
-     * Queries and returns the 3rd party data
+     * Queries and constructs the XML documet out of the 3rd party data
      *
-     * @return array
+     * @return void
      */
     private function _loadServiceData()
     {

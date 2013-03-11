@@ -13,7 +13,7 @@ use \Lib\Rates\CurrencyConverter;
 require_once '../lib/Config.php';
 
 // Retrieve all the supported currencies
-$currencies = CurrencyConverter::getSupportedCurrencies();
+//$currencies = CurrencyConverter::getSupportedCurrencies();
 
 ?>
 <!DOCTYPE html>
