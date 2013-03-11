@@ -25,7 +25,6 @@ Directory Structure
 The app has the following structure:
 
 <pre>
-
 /-
  /batch     -> Batch script. This is where batch scripts are
  /config    -> App configuration. This should be the only place to edit configs
@@ -38,13 +37,13 @@ The app has the following structure:
 
 
 
-PHP App Notes
+1. PHP App Notes
 --------------------------------------------------------------------------------
 The main idea was to design something that can handle requirements growth, using
 classes with high cohesion and low coupling.
 
-How to configure the app
-************************
+1.1 How to configure the app
+--------------------------------------------------------------------------------
 The design can be divided in 2 main areas, the batch or command line and the web
 interface.
 
@@ -54,14 +53,14 @@ Both areas are setup with the same configuration file, which is located in the
 This should be the only place to edit configurations.
 
 
-How to run the batch
-********************
+1.2. How to run the batch
+--------------------------------------------------------------------------------
 
         php batch/rates.php
 
 
-Design Aspects:
-***************
+1.3. Design Aspects:
+--------------------------------------------------------------------------------
 
 The main idea behind this approach was that the comsuption of a 3rd party service
 of exchange rates does not required to be executed constantly or on real time.
@@ -95,5 +94,5 @@ There are some issues that could be improved:
 
 
 
-JS App Notes
+2. JS App Notes
 --------------------------------------------------------------------------------
