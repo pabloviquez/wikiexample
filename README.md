@@ -1,8 +1,8 @@
-WIKI Example
-Wikipedia Code Exercise
-Developer interview task (Mobile)
+WIKI Example :: Wikipedia Code Exercise
 --------------------------------------------------------------------------------
+Developer interview task (Mobile)
 Author: Pablo Viquez <pviquez@pabloviquez.com>
+
 
 Global App Notes
 --------------------------------------------------------------------------------
@@ -20,6 +20,20 @@ Minimum Requirements
  + MySQL 5.x
 
 
+Directory Structure
+--------------------------------------------------------------------------------
+The app has the following structure:
+
+/-
+ /batch     -> Batch script. This is where batch scripts are
+ /config    -> App configuration. This should be the only place to edit configs
+ /docs      -> Any relevant documentation
+ /lib       -> PHP library for the app
+ /sql       -> SQL Scripts for the DB creation
+ /src       -> Public html directory
+
+
+
 PHP App Notes
 --------------------------------------------------------------------------------
 The main idea was to design something that can handle requirements growth, using
@@ -27,12 +41,19 @@ classes with high cohesion and low coupling.
 
 How to configure the app
 ************************
-The design can be divided in 2 main areas
+The design can be divided in 2 main areas, the batch or command line and the web
+interface.
+
+Both areas are setup with the same configuration file, which is located in the
+"config/config.ini" file.
+
+This should be the only place to edit configurations.
 
 
 How to run the batch
 ********************
-php batch/rates.php
+
+        php batch/rates.php
 
 
 Design Aspects:
@@ -48,7 +69,6 @@ All classes lives inside the "lib" directory. This lib directory is suppoused to
 be outside the live app, the same goes for the config.ini file.
 
 All app configurations, should be outside the public directory.
-
 
 
 There are some issues that could be improved:
