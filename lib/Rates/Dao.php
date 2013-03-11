@@ -29,7 +29,7 @@ class Dao
      * Retrieves the specific conversion rate of all if none is specified
      *
      * @param array $currencies Optional array of currency codes to retrieve
-     * @return array
+     * @return array An array with the requested rates
      */
     public function get(array $currencies = array())
     {
@@ -42,13 +42,20 @@ class Dao
         }
 
         $sql = "SELECT cr.currency,
-                       cr.rate,
-                       UNIX_TIMESTAMP(cr.last_updated) last_updated
+                       cr.rate
                   FROM conversion_rate cr
                  WHERE 1=1 {$where}";
 
         $sth = $this->_getDbInstance()->prepare($sql);
-        return $sth->execute($sql, $currencies);
+        $sth->execute($currencies);
+        $data = $sth->fetchAll(PDO::FETCH_OBJ);
+
+        $result = array();
+        foreach ($data as $rate) {
+            $result[$rate->currency] = $rate->rate;
+        }
+
+        return $result;
     }
 
     /**
@@ -60,7 +67,16 @@ class Dao
     {
         $sql = "SELECT cr.currency FROM conversion_rate cr";
         $sth = $this->_getDbInstance()->prepare($sql);
-        return $sth->execute();
+        $sth->execute();
+        $values = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+        // Lets flattened the data
+        $codes = array();
+        foreach ($values as $currency) {
+            $codes[] = $currency['currency'];
+        }
+
+        return $codes;
     }
 
     /**

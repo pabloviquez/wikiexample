@@ -18,7 +18,13 @@ PHP App Notes
 The main idea was to design something that can handle requirements growth, using
 classes with high cohesion and low coupling.
 
+How to run the batch
+********************
+php batch/rates.php
+
+
 Design Aspects:
+***************
 
 The main idea behind this approach was that the comsuption of a 3rd party service
 of exchange rates does not required to be executed constantly or on real time.
@@ -44,3 +50,9 @@ There are some issues that could be improved:
    be improved by adding a more roubust process control to detect and log failures
    and to not run if another one is currently running.
 
+3. Locale aware: This application could benefit from a locale aware setup, that's
+   presenting the currencies according to the user browser locale, for a more
+   I18N friendly app
+
+4. Unit test: Unit test are extremely important, this because they could easily
+   test the internal classes just like the Batch processing.
