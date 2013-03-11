@@ -24,6 +24,8 @@ Directory Structure
 --------------------------------------------------------------------------------
 The app has the following structure:
 
+<pre>
+
 /-
  /batch     -> Batch script. This is where batch scripts are
  /config    -> App configuration. This should be the only place to edit configs
@@ -31,6 +33,8 @@ The app has the following structure:
  /lib       -> PHP library for the app
  /sql       -> SQL Scripts for the DB creation
  /src       -> Public html directory
+
+</pre>
 
 
 
