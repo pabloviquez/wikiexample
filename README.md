@@ -10,15 +10,25 @@ The public directory resides in the "src" directory. All other files should be
 outside the public eye hoewever stil accesible to the web server user.
 
 
-JS App Notes
+Minimum Requirements
 --------------------------------------------------------------------------------
+ + PHP 5.3 or greater
+ ++ PHP Modules:
+   - PDO
+   - SimpleXML
 
+ + MySQL 5.x
 
 
 PHP App Notes
 --------------------------------------------------------------------------------
 The main idea was to design something that can handle requirements growth, using
 classes with high cohesion and low coupling.
+
+How to configure the app
+************************
+The design can be divided in 2 main areas
+
 
 How to run the batch
 ********************
@@ -58,3 +68,8 @@ There are some issues that could be improved:
 
 4. Unit test: Unit test are extremely important, this because they could easily
    test the internal classes just like the Batch processing.
+
+
+
+JS App Notes
+--------------------------------------------------------------------------------
