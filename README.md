@@ -1,5 +1,5 @@
 WIKI Example :: Wikipedia Code Exercise
---------------------------------------------------------------------------------
+================================================================================
 Developer interview task (Mobile)
 Author: Pablo Viquez <pviquez@pabloviquez.com>
 
