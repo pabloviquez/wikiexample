@@ -81,6 +81,10 @@ class Batch
 
         $rates = array();
         foreach ($this->_data as $conversion) {
+            if (!is_numeric($conversion->rate)) {
+                continue;
+            }
+
             $currency = (string) $conversion->currency;
             $rates[$currency] = (string) $conversion->rate;
         }

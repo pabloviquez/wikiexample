@@ -25,6 +25,12 @@ Wiki.Donations = {
 
         // Set the event handlers
         $("#currencySelector").change(function() { Wiki.Donations.updateDonationButtons(); });
+
+        // Set the handlers for the buttons
+        $("#donations > button").click(function() {
+            amount = $(this).text();
+            alert("Thank you for your " + amount +  " donation!");
+        });
     },
 
     /**

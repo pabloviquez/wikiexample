@@ -105,9 +105,12 @@ There are some issues that could be improved:
 4. Unit test: Unit test are extremely important, this because they could easily
    test the internal classes just like the Batch processing.
 
+5. Caching system. The DB results should be cached. The implementation of a caching
+   server; like Memcached or Redis, is critical for optimal performance.
 
 
-2. JS App Notes
+
+2. Client Side App Notes
 --------------------------------------------------------------------------------
 
 2.1. Design Aspects:
@@ -123,6 +126,17 @@ more efficient coding.
    JavaScript, since this is a donations page, it should support browser with
    no JavaScript. Right now, if the user does not have JavaScript enabled,
    it wont be able to switch currencies.
+
+2. Unit test. As part of the quality control best practices, unit testing for the
+   JS is a good idea.
+
+3. The twitter bootstrap CSS file contains a lot of classes that are not being
+   used, for better performance, removing them is a good idea or just download
+   the necessary ones.
+
+4. Even though the requirements didn't state the requirement, I was unable to
+   to a test on Windows Phone or IE. As a thing to improve, I definitely will
+   recommend to do a test for IE compatibility.
 
 
 
