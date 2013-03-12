@@ -24,7 +24,7 @@ require_once '../lib/Config.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/global.css" rel="stylesheet" media="screen">
+    <link href="css/global.min.css" rel="stylesheet" media="screen">
 </head>
 <body>
     <div class="container">
